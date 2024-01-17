@@ -45,6 +45,11 @@ jobs:
       run: |
         docker rmi `docker images -q`
         sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android /opt/ghc
+        sudo rm /opt/hostedtoolcache/CodeQL -rf 2>/dev/null
+        sudo rm /usr/local/.ghcup -rf 2>/dev/null
+        sudo rm /usr/share/swift -rf 2>/dev/null
+        sudo rm /usr/local/share/powershell -rf 2>/dev/null
+        sudo rm /usr/local/lib/heroku -rf 2>/dev/null
         sudo -E apt-mark hold grub-efi-amd64-signed
         sudo -E apt update
         sudo -E apt -y purge azure-cli* docker* ghc* zulu* llvm* firefox google* dotnet* powershell* openjdk* mysql* php* mongodb* dotnet* snap*
