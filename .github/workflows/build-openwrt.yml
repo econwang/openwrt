@@ -43,7 +43,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        docker rmi `docker images -q`
+        docker images -q | xargs -r docker rmi
         sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android /opt/ghc
         sudo rm /opt/hostedtoolcache/CodeQL -rf 2>/dev/null
         sudo rm /usr/local/.ghcup -rf 2>/dev/null
